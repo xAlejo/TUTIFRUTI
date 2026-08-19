@@ -1,1 +1,186 @@
+# Análisis de Requerimientos y Propuesta de Solución Técnica - ESCENCIA
+
+## 1. Identificación del Problema
+
+ESCENCIA es una tienda dedicada a la venta de perfumes y actualmente cuenta con un catálogo de aproximadamente 35 productos diferentes.
+
+El principal problema identificado corresponde a la falta de un sistema adecuado para controlar el inventario de la tienda.
+
+Actualmente no existe un registro centralizado que permita conocer con exactitud la cantidad disponible de cada perfume.
+
+Esta situación dificulta saber cuántas unidades de cada producto se encuentran disponibles para la venta.
+
+También resulta complicado determinar cuáles son los perfumes que tienen mayores ventas durante un período determinado.
+
+La falta de información sobre el inventario puede provocar que la tienda mantenga demasiado stock de algunos productos.
+
+También puede ocurrir que un producto se agote sin que los encargados sepan oportunamente que es necesario realizar una nueva compra.
+
+Esto puede generar problemas en la atención de los clientes cuando solicitan un perfume que aparece disponible, pero realmente no existe stock.
+
+Además, la falta de control puede generar pérdidas económicas debido a errores en el registro de las existencias.
+
+Por estos motivos, ESCENCIA necesita una solución informática que permita administrar y controlar su inventario de manera ordenada.
+
+## 2. Objetivo de la Solución
+
+El objetivo principal es desarrollar un sistema de control de inventario para la tienda ESCENCIA.
+
+El sistema deberá permitir registrar todos los perfumes disponibles en el catálogo.
+
+Cada producto deberá contar con información que permita identificarlo de manera única.
+
+El sistema deberá almacenar la cantidad disponible de cada perfume.
+
+También deberá permitir registrar las entradas de productos cuando se realicen compras a los proveedores.
+
+De la misma manera, deberá registrar las salidas de productos producidas por las ventas realizadas.
+
+El sistema permitirá consultar el stock actual de cada perfume en cualquier momento.
+
+Además, permitirá identificar los productos con mayor cantidad de ventas.
+
+La información obtenida ayudará a ESCENCIA a tomar mejores decisiones sobre las compras de productos.
+
+## 3. Requerimientos Funcionales
+
+El sistema deberá permitir registrar nuevos perfumes en el catálogo.
+
+El sistema deberá permitir modificar la información de un perfume existente.
+
+El sistema deberá permitir consultar el listado completo de perfumes disponibles.
+
+Cada perfume deberá tener un código o identificador único.
+
+Cada producto deberá almacenar su nombre.
+
+Cada producto deberá almacenar su marca.
+
+Cada producto deberá almacenar su precio de venta.
+
+Cada producto deberá almacenar la cantidad disponible en inventario.
+
+El sistema deberá permitir registrar el ingreso de nuevas unidades de un perfume.
+
+El sistema deberá aumentar automáticamente el stock cuando se registre una entrada.
+
+El sistema deberá permitir registrar una venta de uno o varios perfumes.
+
+El sistema deberá disminuir automáticamente el stock cuando se registre una venta.
+
+El sistema no deberá permitir vender una cantidad superior al stock disponible.
+
+El sistema deberá mostrar un mensaje cuando un producto no tenga unidades disponibles.
+
+El sistema deberá permitir consultar el stock de todos los productos.
+
+El sistema deberá permitir identificar productos con stock bajo.
+
+El sistema deberá permitir consultar el historial de movimientos de inventario.
+
+El sistema deberá registrar la fecha en que se realizó cada movimiento.
+
+El sistema deberá identificar si cada movimiento corresponde a una entrada o una salida.
+
+El sistema deberá permitir consultar las ventas realizadas durante un período determinado.
+
+El sistema deberá generar información sobre los perfumes más vendidos.
+
+El sistema deberá permitir conocer la cantidad total de unidades vendidas de cada perfume.
+
+El sistema deberá permitir identificar productos que presentan poca rotación.
+
+## 4. Requerimientos No Funcionales
+
+La aplicación deberá contar con una interfaz sencilla y fácil de utilizar.
+
+La información deberá almacenarse de manera organizada en una base de datos.
+
+El sistema deberá evitar la pérdida de información mediante el almacenamiento permanente de los registros.
+
+Los usuarios deberán poder consultar la información de manera rápida.
+
+El sistema deberá validar los datos ingresados para reducir errores.
+
+Los campos obligatorios no deberán quedar vacíos al registrar productos o movimientos.
+
+El sistema deberá impedir que el stock tenga valores negativos.
+
+La información deberá mantenerse consistente entre las ventas y el inventario.
+
+## 5. Propuesta de Solución Técnica
+
+Se propone desarrollar un sistema de gestión de inventario utilizando una arquitectura cliente-servidor.
+
+La aplicación contará con una interfaz donde los usuarios podrán registrar y consultar la información.
+
+La información será almacenada en una base de datos relacional.
+
+Como base de datos se propone utilizar PostgreSQL debido a que permite administrar información estructurada y establecer relaciones entre las diferentes entidades.
+
+La base de datos deberá contar con una tabla para almacenar los productos.
+
+La tabla de productos podrá contener campos como ID, nombre, marca, precio y stock.
+
+También se deberá crear una tabla para registrar las ventas realizadas.
+
+La tabla de ventas deberá almacenar información como el identificador de la venta, fecha y total.
+
+Además, se propone utilizar una tabla de detalle de venta para registrar los productos incluidos en cada venta.
+
+Esta tabla permitirá saber exactamente qué perfumes fueron vendidos y en qué cantidad.
+
+También se podrá implementar una tabla de movimientos de inventario.
+
+Esta tabla permitirá registrar las entradas y salidas de productos.
+
+Cada movimiento deberá estar asociado a un producto y registrar su fecha, cantidad y tipo de movimiento.
+
+Cuando se registre una entrada de productos, el sistema deberá aumentar automáticamente el stock correspondiente.
+
+Cuando se registre una venta, el sistema deberá disminuir automáticamente las unidades disponibles.
+
+Antes de realizar una venta, el sistema deberá verificar que exista suficiente stock.
+
+De esta manera se evitará que el inventario registre cantidades negativas.
+
+## 6. Reportes y Consultas
+
+El sistema deberá contar con un reporte del inventario actual.
+
+Este reporte permitirá visualizar los 35 perfumes y sus cantidades disponibles.
+
+También se deberá generar un reporte de productos con stock bajo.
+
+Este reporte permitirá identificar qué perfumes deberían ser comprados nuevamente.
+
+Se deberá implementar un reporte de los productos más vendidos.
+
+Este reporte permitirá determinar cuáles son los perfumes con mejor rendimiento comercial.
+
+También se podrá generar un reporte de ventas por mes.
+
+Este reporte permitirá conocer la cantidad de productos vendidos durante un período determinado.
+
+Los reportes permitirán que ESCENCIA tenga información útil para tomar decisiones relacionadas con sus proveedores y compras.
+
+## 7. Beneficios de la Solución
+
+La implementación del sistema permitirá mantener un inventario organizado y actualizado.
+
+ESCENCIA podrá conocer rápidamente cuántas unidades tiene disponibles de cada perfume.
+
+Se reducirán los errores producidos por registros manuales.
+
+También disminuirá el riesgo de vender productos que no se encuentran disponibles.
+
+El sistema permitirá detectar oportunamente los productos que necesitan reposición.
+
+La información histórica permitirá analizar cuáles son los perfumes más vendidos.
+
+Esto ayudará a evitar la acumulación innecesaria de productos con baja demanda.
+
+Además, permitirá reducir posibles pérdidas económicas relacionadas con una mala administración del inventario.
+
+En conclusión, la solución propuesta permitirá a ESCENCIA tener un mayor control de sus productos, mejorar la atención de sus clientes y tomar decisiones comerciales basadas en información real y actualizada.
 
