@@ -10,8 +10,8 @@ Distribución de frutas y verduras al por mayor.
 
 ## 3. Integrantes
 
-* Alejo
-* Romina
+* Alejo Burgos
+* Romina Valenzuela
 
 ## 4. Descripción del Problema
 
